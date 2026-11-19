@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Площадки — защита ИИ-кэмпа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="preza.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-base" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="i-req" viewBox="0 0 24 24"><path d="M3 13l2.5-8h13L21 13v6H3z"/><path d="M3 13h5l1.5 2.5h5L16 13h5"/></symbol>
+    <symbol id="i-fields" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.4 3-5.2 6-5.2s5.4 1.8 6 5.2"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c2.4.2 4 1.7 4.5 4.5"/></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4L3 11.2l6.2 2.3L18 7.5l-7 7.3V20l3.4-3.6L18 19z"/></symbol>
+    <symbol id="i-xls" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M4 9h16M4 14.5h16M10 9v11.5"/></symbol>
+    <symbol id="i-arch" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1.5"/><path d="M5 9v10.5h14V9M10 13h4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-cur" viewBox="0 0 24 24"><path d="M5 2.5l13.5 12.2-6.2.6 3.6 7.4-2.7 1.3-3.6-7.5L5 20.5z"/></symbol>
+  </defs>
+</svg>
+
+<div class="stage" id="stage">
+  <div class="glow" id="glow"></div>
+  <div class="dots-bg"></div>
+
+  <svg class="map" id="map" viewBox="0 0 1000 1000">
+    <g class="roads">
+      <path class="ring mkad" d="M500 40c150 0 290 50 360 150s90 210 80 320-40 220-120 300-200 150-330 150-240-50-320-140S50 640 55 500s40-230 120-320S350 40 500 40z"/>
+      <path class="ring" d="M500 285c95 0 165 40 195 105s25 145-15 200-110 120-185 120-140-40-180-100-50-140-20-210 110-115 205-115z"/>
+      <path class="ring" d="M500 395c55 0 95 30 105 75s0 90-35 115-75 30-110 15-60-50-60-95 35-110 100-110z"/>
+      <path class="ring thin" d="M500 440c30 0 52 18 56 42s-6 48-30 58-50 6-66-12-12-50 0-68 20-20 40-20z"/>
+      <path class="river" d="M40 330c80 10 140 60 200 130s120 60 180 20 110-50 150 0 0 120 60 150 130-20 170 40 60 120 140 180"/>
+      <path class="ray" d="M500 285V40M695 390L905 250M680 590L900 760M500 710V960M320 600L100 760M300 400L80 280M610 300L760 70M390 300L230 80"/>
+    </g>
+    <g id="mapdots"></g>
+  </svg>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section class="slide s0">
+    <h1 class="mega">Площадки</h1>
+    <p class="sub">ИИ-кэмп 2026 · защита проекта</p>
+  </section>
+
+  <section class="slide s1">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 2 / 8"><p class="k">ИИ-кэмп 2026 · защита проекта</p></div>
+      <div class="c bare" style="grid-area: 2 / 1 / 4 / 8"><h1 class="yt">Площадки</h1></div>
+      <div class="c bare" style="grid-area: 4 / 1 / 6 / 8"><p class="lead">Вся база площадок для мероприятий в одном окне: статусы, договоры, контакты, запросы продажников</p></div>
+      <div class="c" style="grid-area: 6 / 1 / 7 / 8"><p class="k">Для кого</p><p class="n">Менеджеры по площадкам и по продажам</p></div>
+      <div class="c" style="grid-area: 7 / 1 / 9 / 4"><p class="k">Лидер</p><p class="n">Евгений Авдеев</p></div>
+      <div class="c" style="grid-area: 7 / 4 / 9 / 7"><p class="k">Наставник</p><p class="n">Александр Мусатов</p></div>
+      <div class="c logo-c" style="grid-area: 7 / 7 / 9 / 8"><img src="media/logo-aplus.svg" alt="Аренда Плюс"></div>
+    </div>
+  </section>
+
+  <section class="slide s2">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Как было<br><span class="yt">до инструмента</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">02</p></div>
+      <div class="c" style="grid-area: 3 / 1 / 6 / 7"><p class="k">Типичная картина</p><p class="lead">Площадки живут в таблицах и в головах менеджеров</p></div>
+      <div class="c" style="grid-area: 3 / 7 / 6 / 13"><p class="k">Что теряется</p><p class="lead">Не видно, кого давно не касались, — контакт остывает незаметно</p></div>
+      <div class="c" style="grid-area: 6 / 1 / 8 / 5"><p>Продажник спрашивает площадку — ответ зависит от того, кто помнит</p></div>
+      <div class="c" style="grid-area: 6 / 5 / 8 / 9"><p>Договор, кейтеринг, вместимость — в разных файлах и переписках</p></div>
+      <div class="c gap" style="grid-area: 6 / 9 / 8 / 13"><p class="k">Замер «как было»</p><p class="blank">___</p><p class="small">уточняется</p></div>
+      <div class="c bare mid" style="grid-area: 8 / 1 / 9 / 13"><p class="small">Типичная проблема работы с площадками. Цифр «до» пока нет.</p></div>
+    </div>
+  </section>
+
+  <section class="slide s3">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Как это<br><span class="yt">выглядит</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">03</p></div>
+      <div class="c pic" style="grid-area: 3 / 1 / 9 / 9">
+        <div class="win">
+          <div class="bar"><i></i><i></i><i></i><span>Площадки</span></div>
+          <div class="scr" id="scr">
+            <div class="cam" id="cam">
+              <img src="src/baza.jpg" alt="База площадок" class="on">
+              <img src="src/kartochka.jpg" alt="Карточка площадки">
+              <img src="src/polya.jpg" alt="Настройка полей">
+              <img src="src/zaprosy.jpg" alt="Запросы продажников">
+              <div class="hl" id="hl"></div>
+              <div class="ptr" id="ptr"><svg><use href="#i-cur"/></svg><b></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c step on" style="grid-area: 3 / 9 / 5 / 13"><p class="k"><span class="num">1</span>База</p><p>Фильтры по типу, статусу, кейтерингу, гостям. У каждой — сколько дней без контакта</p></div>
+      <div class="c step" style="grid-area: 5 / 9 / 7 / 13"><p class="k"><span class="num">2</span>Карточка</p><p>Фото, залы с м² и вместимостью, договор, что не заполнено, история</p></div>
+      <div class="c step" style="grid-area: 7 / 9 / 8 / 13"><p class="k"><span class="num">3</span>Поля</p><p>Настраиваются без программиста</p></div>
+      <div class="c step" style="grid-area: 8 / 9 / 9 / 13"><p class="k"><span class="num">4</span>Запросы</p><p>Продажники просят подбор площадки</p></div>
+    </div>
+  </section>
+
+  <section class="slide s4">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Что уже<br><span class="yt">работает</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">04</p></div>
+      <div class="c o" style="grid-area: 3 / 1 / 5 / 3"><p class="k">Всего площадок</p><p class="mid-n cnt" data-to="157">157</p></div>
+      <div class="c" style="grid-area: 3 / 3 / 5 / 5"><p class="k">Активные</p><p class="mid-n cnt gr" data-to="62">62</p></div>
+      <div class="c" style="grid-area: 3 / 5 / 5 / 7"><p class="k">Ждут подписания</p><p class="mid-n cnt" data-to="51">51</p></div>
+      <div class="c" style="grid-area: 3 / 7 / 5 / 9"><p class="k">Нужна проверка</p><p class="mid-n cnt" data-to="59">59</p></div>
+      <div class="c" style="grid-area: 3 / 9 / 5 / 11"><p class="k">Давно не касались</p><p class="mid-n cnt" data-to="153">153</p></div>
+      <div class="c" style="grid-area: 3 / 11 / 5 / 13"><p class="k">Без фото</p><p class="mid-n cnt" data-to="41">41</p></div>
+      <div class="c top" style="grid-area: 5 / 1 / 9 / 7">
+        <p class="k">Разделы</p>
+        <ul class="ico">
+          <li><svg><use href="#i-base"/></svg>База</li>
+          <li><svg><use href="#i-req"/></svg>Запросы</li>
+          <li><svg><use href="#i-fields"/></svg>Поля</li>
+          <li><svg><use href="#i-team"/></svg>Команда</li>
+          <li><svg><use href="#i-log"/></svg>Журнал</li>
+          <li><svg><use href="#i-arch"/></svg>Архив</li>
+          <li><svg><use href="#i-tg"/></svg>Оповещения в Telegram</li>
+          <li><svg><use href="#i-xls"/></svg>Выгрузка в Excel</li>
+        </ul>
+      </div>
+      <div class="c frame" style="grid-area: 5 / 7 / 9 / 13"><div class="legend"><p class="k">На 19.11</p><p><i class="dot gr"></i>62 активные</p><p><i class="dot"></i>остальные</p><p class="small">Одна точка — одна площадка. Схема условная</p></div></div>
+    </div>
+  </section>
+
+  <section class="slide s5">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Первые<br><span class="yt">результаты</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">05</p></div>
+      <div class="c" style="grid-area: 3 / 1 / 7 / 8"><p class="k">Заходили в панель · 19.11</p><p class="big"><span class="yt cnt" data-to="9">9</span> <span class="of">из 37</span></p><div class="people" id="people"></div></div>
+      <div class="c" style="grid-area: 3 / 8 / 5 / 13"><p class="k">Заходов · 19.11</p><p class="mid-n cnt" data-to="25">25</p></div>
+      <div class="c" style="grid-area: 5 / 8 / 7 / 13"><p class="k">Время в панели · 19.11</p><p class="mid-n cnt" data-to="101" data-fmt="hm">1 ч 41 мин</p></div>
+      <div class="c" style="grid-area: 7 / 1 / 9 / 8"><p class="k">Журнал считает</p><p>Дни, заходы, время, карточки, поиски, фильтры, выгрузки в Excel, правки, запросы</p></div>
+      <div class="c gap" style="grid-area: 7 / 8 / 9 / 13"><p class="k">До / после</p><p class="blank">___</p><p class="small">уточняется</p></div>
+    </div>
+  </section>
+
+  <section class="slide s6">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Какой эффект<br><span class="yt">ждём</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">06</p></div>
+      <div class="c gap" style="grid-area: 3 / 1 / 8 / 8"><p class="k">Экономия рабочего времени</p><p class="big blank">___</p><p class="small">часов в месяц · уточняется</p></div>
+      <div class="c gap top" style="grid-area: 3 / 8 / 8 / 13"><p class="k">Допущения</p><ul class="blanks"><li>Время на подбор до <b>___</b></li><li>Время на подбор после <b>___</b></li><li>Запросов в месяц <b>___</b></li><li>Период <b>___</b></li></ul></div>
+      <div class="c bare mid" style="grid-area: 8 / 1 / 9 / 13"><p class="small">Цифры эффекта команда пока не дала — слайд заполняется к защите.</p></div>
+    </div>
+  </section>
+
+  <section class="slide s7">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Как обеспечим<br><span class="yt">использование</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">07</p></div>
+      <div class="c" style="grid-area: 3 / 1 / 6 / 5"><p class="k">Пользователи</p><p class="mid-n">37</p><p>менеджеры по продажам и по площадкам</p></div>
+      <div class="c" style="grid-area: 3 / 5 / 6 / 9"><p class="k">Запросы продажников</p><p class="flow"><span class="bd s">Новый</span><span class="to"></span><span class="bd y">В работе</span><span class="to"></span><span class="bd g">Закрыт</span></p><p class="small">или «Отменён» · оповещения в Telegram</p></div>
+      <div class="c team" style="grid-area: 3 / 9 / 6 / 13"><p class="k">Команда проекта</p><img src="media/logo-aplus.svg" alt="Аренда Плюс"><p>Лидер · Евгений Авдеев<br>Наставник · Александр Мусатов</p></div>
+      <div class="c gap" style="grid-area: 6 / 1 / 9 / 5"><p class="k">Обучение</p><p class="blank">___</p><p class="small">уточняется</p></div>
+      <div class="c gap" style="grid-area: 6 / 5 / 9 / 9"><p class="k">Кто ведёт базу</p><p class="blank">___</p><p class="small">уточняется</p></div>
+      <div class="c gap" style="grid-area: 6 / 9 / 9 / 13"><p class="k">Сроки</p><p class="blank">___</p><p class="small">уточняется</p></div>
+    </div>
+  </section>
+
+  <section class="slide s8">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Готовность<br><span class="yt">и доработки</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">08</p></div>
+      <div class="c" style="grid-area: 3 / 1 / 5 / 4"><p class="k">Без фото</p><p class="mid-n cnt" data-to="41">41</p></div>
+      <div class="c" style="grid-area: 3 / 4 / 5 / 7"><p class="k">Нужна проверка</p><p class="mid-n cnt" data-to="59">59</p></div>
+      <div class="c" style="grid-area: 3 / 7 / 5 / 10"><p class="k">Ждут подписания</p><p class="mid-n cnt" data-to="51">51</p></div>
+      <div class="c" style="grid-area: 3 / 10 / 5 / 13"><p class="k">Давно не касались</p><p class="mid-n cnt rd" data-to="153">153</p></div>
+      <div class="c top" style="grid-area: 5 / 1 / 9 / 8">
+        <p class="k">Карточка «Академия Будущего»: не заполнено 26 полей</p>
+        <p class="chips"><span>Адрес</span><span>Площадь</span><span>Условия аренды</span><span>Комиссия %</span><span>Кейтеринг — доступ</span><span>Оборудование — доступ</span><span>Парковка</span><span>Юрлицо</span><span>ИНН</span><span>Тип договора</span><span>Контакты</span><span>Ответственный менеджер</span><span>Дата последнего контакта</span><span>Следующий шаг</span><span>Битрикс</span><span class="more">и ещё 11</span></p>
+        <p class="tags"><span>443 дня без контакта</span><span>505 дней без контакта</span><span>контакта не было</span></p>
+      </div>
+      <div class="c gap" style="grid-area: 5 / 8 / 7 / 13"><p class="k">План доработок</p><p class="blank">___</p><p class="small">уточняется</p></div>
+      <div class="c gap" style="grid-area: 7 / 8 / 9 / 13"><p class="k">Помощь руководителей</p><p class="blank">___</p><p class="small">уточняется</p></div>
+    </div>
+  </section>
+
+  <section class="slide s9">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Как проверим<br><span class="yt">эффект</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">09</p></div>
+      <div class="c top" style="grid-area: 3 / 1 / 8 / 13">
+        <table>
+          <tr><th>Метрика</th><th>Сейчас · 19.11</th><th>Ориентир</th><th>Источник</th></tr>
+          <tr><td>Заходили в панель</td><td><b>9 из 37</b></td><td class="bl">___</td><td>Журнал</td></tr>
+          <tr><td>Заходов за день</td><td><b>25</b></td><td class="bl">___</td><td>Журнал</td></tr>
+          <tr><td>Время в панели за день</td><td><b>1 ч 41 мин</b></td><td class="bl">___</td><td>Журнал</td></tr>
+          <tr><td>Давно не касались</td><td><b>153 из 157</b></td><td class="bl">___</td><td>База</td></tr>
+          <tr><td>Без фото</td><td><b>41</b></td><td class="bl">___</td><td>База</td></tr>
+        </table>
+      </div>
+      <div class="c bare mid" style="grid-area: 8 / 1 / 9 / 13"><p class="small">«Сейчас» снято 19.11. Ориентиры, период и владельцы метрик уточняются.</p></div>
+    </div>
+  </section>
+
+  <section class="slide s10">
+    <div class="grid">
+      <div class="c bare" style="grid-area: 1 / 1 / 3 / 10"><h2>Итог<br><span class="yt">и решение</span></h2></div>
+      <div class="c y mid" style="grid-area: 1 / 10 / 3 / 13"><p class="big">10</p></div>
+      <div class="c top" style="grid-area: 3 / 1 / 6 / 7"><p class="k">Работает</p><p class="lead">База 157 площадок, карточки, свои поля, запросы продажников и журнал</p></div>
+      <div class="c top" style="grid-area: 3 / 7 / 6 / 13"><p class="k">Пользуются · 19.11</p><p class="lead">9 из 37 заходили, 25 заходов, 1 ч 41 мин в панели</p></div>
+      <div class="c gap mid" style="grid-area: 6 / 1 / 9 / 13"><p class="k">Просим решения</p><p class="big blank">___</p><p class="small">уточняется</p></div>
+    </div>
+  </section>
+
+  <img class="corner" src="media/logo-aplus.svg" alt="">
+  <div class="pager" id="pager"></div>
+</div>
+<div class="black" id="black" hidden></div>
+<audio id="music" src="media/music.m4a" loop preload="auto"></audio>
+<script src="preza.js"></script>
+</body>
+</html>
